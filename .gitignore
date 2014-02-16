@@ -1,0 +1,8 @@
+# Global
+*.log
+*.swp
+*~
+
+# Latex Template
+*.aux
+*.gz
