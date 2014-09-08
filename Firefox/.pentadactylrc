@@ -1,0 +1,33 @@
+"1.1
+
+loadplugins '\.(js|penta)$'
+group user
+
+" vim: set ft=pentadactyl:
+
+"fullscreen mode when start
+set fullscreen
+"minimum UI
+set guioptions=bCs
+"hide tabs bar
+"set showtabline=never
+
+"change Tab grop short keys
+nmap <M-;>  <M-S-e> 
+
+"back or foward in history
+map -builtin , H 
+map -builtin . L 
+
+"right or left move
+map -builtin H h
+map -builtin L l
+
+"back or foward in tabs
+map h gT
+map l gt
+
+" [[ 与 ]] 跳转到下一页的链接识别
+"" default: '^Next [>»]','^Next »','\bnext\b',^>$,'^(>>|»)$','^(>|»)','(>|»)$','\bmore\b'
+set nextpattern='\bnext\b',^>$,'^(>>|»)$','^(>|»)','(>|»)$','\bmore\b','s*下一页|下一张|下一章|下一篇|下一頁|下页|后页s*'
+set previouspattern='\bprev|previous\b',^<$,'^(<<|«)$','^(<|«)','(<|«)$','s*上一页|上一张|上一章|上一篇|上一頁|上页|前页s*'

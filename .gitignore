@@ -6,3 +6,6 @@
 # Latex Template
 *.aux
 *.gz
+
+# Vim
+.netrwhist
