@@ -1,0 +1,74 @@
+"fullscreen mode when start
+set fullscreen
+
+"minimum UI
+set gui=none,tabs
+
+" Look and feel {{{
+colorscheme solarized_dark
+set visualbell
+
+" Show destination links in 1=status line, 2=command line
+set showstatuslinks=2
+
+" makes searches case-insensitive
+set ignorecase
+" unless they contain upper-case letters
+set smartcase
+" find as you type
+set incsearch
+" highlight the terms
+set hlsearch
+
+" Open and search suggestions {{{
+"Items which are completed at the :open prompts. Available
+"		s		Search engines and keyword URLs
+"		f		Local files
+"		l		Iceweasel	location bar entries (bookmarks and history sorted in an intelligent way)
+"		b		BookmarkshHistory
+"		S		Search engine suggestions
+"		t		Open tabs
+set complete=sSl
+set defsearch=google
+set suggestengines=google
+
+
+" don't focus any "input" elements automatically when open pages.
+set focuscontent
+
+
+" [[ 与 ]] 跳转到下一页的链接识别
+"" default: '^Next [>»]','^Next »','\bnext\b',^>$,'^(>>|»)$','^(>|»)','(>|»)$','\bmore\b'
+set nextpattern='\bnext\b',^>$,'^(>>|»)$','^(>|»)','(>|»)$','\bmore\b','s*下一页|下一张|下一章|下一篇|下一頁|下页|后页s*'
+set previouspattern='\bprev|previous\b',^<$,'^(<<|«)$','^(<|«)','(<|«)$','s*上一页|上一张|上一章|上一篇|上一頁|上页|前页s*'
+
+
+" mappings {{{1
+" clear all key mappings
+" to avoid troubles from loading rc file several times
+mapclear
+cmapclear
+imapclear
+
+" this must be set before map operation, otherwise use default value.
+let mapleader=','
+
+" sourcing .vimperatorrc
+noremap <Leader>r :source ~/.vimperatorrc<CR>"
+
+" searching 
+noremap <Leader>h :nohlsearch<CR>
+
+"change Tab grop short keys
+noremap <M-;>  <M-S-e> 
+
+"back or foward among tabs
+nnoremap j 5j
+nnoremap k 5k
+nnoremap h <C-p>
+nnoremap l <C-n>
+
+"history
+nnoremap , H
+nnoremap . L
+
