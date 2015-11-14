@@ -13,7 +13,7 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 " ----- Making Vim look good ------------------------------------------
 Plugin 'altercation/vim-colors-solarized'
@@ -161,19 +161,28 @@ let g:airline#extensions#tabline#enabled = 1
 
 
 " ----- jistr/vim-nerdtree-tabs -----
-" Open/close NERDTree Tabs with \t
-nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
+" Open/close NERDTree Tabs  
+map <Leader>n <plug>NERDTreeTabsToggle<CR>
 " To have NERDTree always open on startup
 let g:nerdtree_tabs_open_on_console_startup = 0
 
 
 " ----- scrooloose/syntastic settings -----
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 let g:syntastic_error_symbol = '✘'
 let g:syntastic_warning_symbol = "▲"
-augroup mySyntastic
-  au!
-  au FileType tex let b:syntastic_mode = "passive"
-augroup END
+"augroup mySyntastic
+"  au!
+"  au FileType tex let b:syntastic_mode = "passive"
+"augroup END
 
 
 " ----- xolox/vim-easytags settings -----
