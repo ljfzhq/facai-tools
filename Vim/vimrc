@@ -1,0 +1,139 @@
+"vimrc file, coldfire, yafc18@gmail.com
+
+set nocompatible	" use vim defaults
+
+execute pathogen#infect()
+syntax on   " ENable syntax hightlighting
+filetype plugin indent on   " Enable filetype plugins
+
+set t_Co=256    " 256 color support
+
+"use solarized color scheme
+if has('gui_running')
+    set background=light
+else
+    set background=dark
+endif
+colorscheme solarized
+
+set textwidth=79    " Maximum width of text that is being inserted. A longer
+                    " line will be broken after white space to get this width.
+
+"vimdiff auto wrap long line
+"autocmd FilterWritePre * if &diff | setlocal wrap< | endif
+au VimEnter * if &diff | execute 'windo set wrap linebreak nolist' | endif
+
+set expandtab		" use space replace TAB
+set tabstop=4
+set shiftwidth=4	" numbers of spaces to (auto)indent
+set softtabstop=4   " backspace del 4 charac
+set backspace=2     " make backspace could del line breaks, indentation and so on
+
+set scrolloff=3
+set history=500
+set showcmd
+set ruler
+set autoread		" auto read when file changed from the outside
+set encoding=utf-8
+set fileencodings=utf-8,gb2312,gbk,gb18030,iso-2022-jp,euc-jp,cp932,ucs-bom
+set ffs=unix,dos
+
+set hlsearch
+set incsearch
+set showmatch		" match when indicator is over them
+
+set autoindent 
+" set smartindent
+" set nocindent
+
+set number
+
+set title                " change the terminal's title
+
+set visualbell           " don't beep
+set noerrorbells         " don't beep
+
+" Disable swap file
+set nobackup
+set noswapfile
+
+
+" change the mapleader from \ to ,
+let mapleader=","
+
+" Toggle paste mode on and off
+set pastetoggle=<leader>p 
+
+" Clear highlight text
+nmap <silent> <leader>h :nohlsearch<CR>
+
+" move by rows, not linenumber
+nnoremap j gj   
+nnoremap k gk
+
+" airline
+let g:airline_powerline_fonts = 1
+"" always show statusbar
+set laststatus=2
+
+" NERDTreeTabsToggle
+map <Leader>n <plug>NERDTreeTabsToggle<CR>
+
+" ----- xolox/vim-easytags settings -----
+" Where to look for tags files
+set tags=./tags;,~/.vimtags
+" Sensible defaults
+let g:easytags_events = ['BufReadPost', 'BufWritePost']
+let g:easytags_async = 1
+let g:easytags_dynamic_files = 2
+let g:easytags_resolve_links = 1
+let g:easytags_suppress_ctags_warning = 1
+
+" ----- majutsushi/tagbar settings -----
+" Open/close tagbar with \b
+nmap <silent> <leader>b :TagbarToggle<CR>
+" Uncomment to open tagbar automatically whenever possible
+"autocmd BufEnter * nested :call tagbar#autoopen(0)
+
+" ----- airblade/vim-gitgutter settings -----
+" Required after having changed the colorscheme
+hi clear SignColumn
+" In vim-airline, only display "hunks" if the diff is non-zero
+let g:airline#extensions#hunks#non_zero_only = 1
+
+"neocomplete
+let g:neocomplete#enable_at_startup = 1
+
+"syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+"ack.vim
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif 
+
+" ----- scrooloose/syntastic settings -----
+""let g:syntastic_error_symbol = '✘'
+""let g:syntastic_warning_symbol = "▲"
+""augroup mySyntastic
+""  au!
+""  au FileType tex let b:syntastic_mode = "passive"
+""augroup END
+
+
+" ----- Raimondi/delimitMate settings -----
+let delimitMate_expand_cr = 1
+augroup mydelimitMate
+  au!
+  au FileType markdown let b:delimitMate_nesting_quotes = ["`"]
+  au FileType tex let b:delimitMate_quotes = ""
+  au FileType tex let b:delimitMate_matchpairs = "(:),[:],{:},`:'"
+  au FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
+augroup END
