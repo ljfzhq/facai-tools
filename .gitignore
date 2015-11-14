@@ -7,6 +7,10 @@
 # Latex Template
 *.aux
 *.gz
+*.nav
+*.out
+*.snm
+*.toc
 
 # Vim
 .netrwhist
