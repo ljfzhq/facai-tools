@@ -1,20 +1,72 @@
-"vimrc file, coldfire, yafc18@gmail.com
+" File: .vimrc
+" Author: Jake Zimmerman <jake@zimmerman.io>
+" Modifier: Yan Facai <yarc18@gmail.com>
+"
+" How I configure Vim :P
+"
 
-set nocompatible	" use vim defaults
+" Gotta be first
+set nocompatible
 
-execute pathogen#infect()
-syntax on   " ENable syntax hightlighting
-filetype plugin indent on   " Enable filetype plugins
+filetype off
 
-set t_Co=256    " 256 color support
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-"use solarized color scheme
-if has('gui_running')
-    set background=light
-else
-    set background=dark
-endif
-colorscheme solarized
+Plugin 'gmarik/Vundle.vim'
+
+" ----- Making Vim look good ------------------------------------------
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'tomasr/molokai'
+Plugin 'bling/vim-airline'
+
+" ----- Vim as a programmer's text editor -----------------------------
+Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'scrooloose/syntastic'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-easytags'
+Plugin 'majutsushi/tagbar'
+Plugin 'kien/ctrlp.vim'
+"Plugin 'vim-scripts/a.vim'
+
+" ----- Working with Git ----------------------------------------------
+Plugin 'airblade/vim-gitgutter'
+"Plugin 'tpope/vim-fugitive'
+
+" ----- Other text editing features -----------------------------------
+Plugin 'Raimondi/delimitMate'
+
+" ----- man pages, tmux -----------------------------------------------
+"Plugin 'jez/vim-superman'
+"Plugin 'christoomey/vim-tmux-navigator'
+
+" ----- Syntax plugins ------------------------------------------------
+"Plugin 'jez/vim-c0'
+"Plugin 'jez/vim-ispc'
+"Plugin 'kchmck/vim-coffee-script'
+
+" ---- Extras/Advanced plugins ----------------------------------------
+" Highlight and strip trailing whitespace
+"Plugin 'ntpeters/vim-better-whitespace'
+" Easily surround chunks of text
+"Plugin 'tpope/vim-surround'
+" Align CSV files at commas, align Markdown tables, and more
+"Plugin 'godlygeek/tabular'
+" Automaticall insert the closing HTML tag
+"Plugin 'HTML-AutoCloseTag'
+" Make tmux look like vim-airline (read README for extra instructions)
+"Plugin 'edkolev/tmuxline.vim'
+" All the other syntax plugins I use
+"Plugin 'ekalinin/Dockerfile.vim'
+"Plugin 'digitaltoad/vim-jade'
+"Plugin 'tpope/vim-liquid'
+"Plugin 'cakebaker/scss-syntax.vim'
+
+call vundle#end()
+
+filetype plugin indent on
+syntax on
 
 set textwidth=79    " Maximum width of text that is being inserted. A longer
                     " line will be broken after white space to get this width.
@@ -23,6 +75,7 @@ set textwidth=79    " Maximum width of text that is being inserted. A longer
 "autocmd FilterWritePre * if &diff | setlocal wrap< | endif
 au VimEnter * if &diff | execute 'windo set wrap linebreak nolist' | endif
 
+" --- General settings ---
 set expandtab		" use space replace TAB
 set tabstop=4
 set shiftwidth=4	" numbers of spaces to (auto)indent
@@ -43,8 +96,6 @@ set incsearch
 set showmatch		" match when indicator is over them
 
 set autoindent 
-" set smartindent
-" set nocindent
 
 set number
 
@@ -71,13 +122,59 @@ nmap <silent> <leader>h :nohlsearch<CR>
 nnoremap j gj   
 nnoremap k gk
 
-" airline
-let g:airline_powerline_fonts = 1
-"" always show statusbar
+
+" ----- Plugin-Specific Settings --------------------------------------
+
+" ----- altercation/vim-colors-solarized settings -----
+set t_Co=256    " 256 color support
+"use solarized color scheme
+if has('gui_running')
+    set background=light
+else
+    set background=dark
+endif
+colorscheme solarized
+
+" Uncomment the next line if your terminal is not configured for solarized
+"let g:solarized_termcolors=256
+
+" Set the colorscheme
+colorscheme solarized
+
+
+" ----- bling/vim-airline settings -----
+" Always show statusbar
 set laststatus=2
 
-" NERDTreeTabsToggle
-map <Leader>n <plug>NERDTreeTabsToggle<CR>
+" Fancy arrow symbols, requires a patched font
+" To install a patched font, run over to
+"     https://github.com/abertsch/Menlo-for-Powerline
+" download all the .ttf files, double-click on them and click "Install"
+" Finally, uncomment the next line
+"let g:airline_powerline_fonts = 1
+
+" Show PASTE if in paste mode
+let g:airline_detect_paste=1
+
+" Show airline for tabs too
+let g:airline#extensions#tabline#enabled = 1
+
+
+" ----- jistr/vim-nerdtree-tabs -----
+" Open/close NERDTree Tabs with \t
+nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
+" To have NERDTree always open on startup
+let g:nerdtree_tabs_open_on_console_startup = 0
+
+
+" ----- scrooloose/syntastic settings -----
+let g:syntastic_error_symbol = '✘'
+let g:syntastic_warning_symbol = "▲"
+augroup mySyntastic
+  au!
+  au FileType tex let b:syntastic_mode = "passive"
+augroup END
+
 
 " ----- xolox/vim-easytags settings -----
 " Where to look for tags files
@@ -95,37 +192,12 @@ nmap <silent> <leader>b :TagbarToggle<CR>
 " Uncomment to open tagbar automatically whenever possible
 "autocmd BufEnter * nested :call tagbar#autoopen(0)
 
+
 " ----- airblade/vim-gitgutter settings -----
 " Required after having changed the colorscheme
 hi clear SignColumn
 " In vim-airline, only display "hunks" if the diff is non-zero
 let g:airline#extensions#hunks#non_zero_only = 1
-
-"neocomplete
-let g:neocomplete#enable_at_startup = 1
-
-"syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-"ack.vim
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif 
-
-" ----- scrooloose/syntastic settings -----
-""let g:syntastic_error_symbol = '✘'
-""let g:syntastic_warning_symbol = "▲"
-""augroup mySyntastic
-""  au!
-""  au FileType tex let b:syntastic_mode = "passive"
-""augroup END
 
 
 " ----- Raimondi/delimitMate settings -----
@@ -137,3 +209,5 @@ augroup mydelimitMate
   au FileType tex let b:delimitMate_matchpairs = "(:),[:],{:},`:'"
   au FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
 augroup END
+
+
