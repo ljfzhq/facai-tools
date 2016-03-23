@@ -30,6 +30,8 @@ Plugin 'xolox/vim-easytags'
 Plugin 'majutsushi/tagbar'
 Plugin 'kien/ctrlp.vim'
 "Plugin 'vim-scripts/a.vim'
+Plugin 'Shougo/neocomplete.vim'
+"Plugin 'davidhalter/jedi-vim'
 
 " ----- Working with Git ----------------------------------------------
 Plugin 'airblade/vim-gitgutter'
@@ -64,24 +66,35 @@ Plugin 'Raimondi/delimitMate'
 "Plugin 'tpope/vim-liquid'
 "Plugin 'cakebaker/scss-syntax.vim'
 
+" Latex
+Plugin 'VOoM'
+
 call vundle#end()
 
 filetype plugin indent on
 syntax on
 
+
 set textwidth=79    " Maximum width of text that is being inserted. A longer
                     " line will be broken after white space to get this width.
+
+"set formatoptions=tcqmM	" line break can follow an Asian Char and DO NOT insert space before
+						" or after an Asian Char
 
 "vimdiff auto wrap long line
 "autocmd FilterWritePre * if &diff | setlocal wrap< | endif
 au VimEnter * if &diff | execute 'windo set wrap linebreak nolist' | endif
 
 " --- General settings ---
-set expandtab		" use space replace TAB
 set tabstop=4
 set shiftwidth=4	" numbers of spaces to (auto)indent
 set softtabstop=4   " backspace del 4 charac
 set backspace=2     " make backspace could del line breaks, indentation and so on
+" make "tab" insert indents instead of tabs at the beginning of a line
+set smarttab
+
+" always uses spaces instead of tab characters
+set expandtab
 
 set scrolloff=3
 set history=500
@@ -119,6 +132,9 @@ set pastetoggle=<leader>p
 " Clear highlight text
 nmap <silent> <leader>h :nohlsearch<CR>
 
+" Clear highlight text
+"nmap <silent> <leader>r :source ~/.vimrc<CR>
+
 " move by rows, not linenumber
 nnoremap j gj   
 nnoremap k gk
@@ -129,11 +145,7 @@ nnoremap k gk
 " ----- altercation/vim-colors-solarized settings -----
 set t_Co=256    " 256 color support
 "use solarized color scheme
-if has('gui_running')
-    set background=light
-else
-    set background=dark
-endif
+set background=dark
 colorscheme solarized
 
 " Uncomment the next line if your terminal is not configured for solarized
@@ -152,7 +164,7 @@ set laststatus=2
 "     https://github.com/abertsch/Menlo-for-Powerline
 " download all the .ttf files, double-click on them and click "Install"
 " Finally, uncomment the next line
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 
 " Show PASTE if in paste mode
 let g:airline_detect_paste=1
@@ -173,13 +185,16 @@ let g:nerdtree_tabs_open_on_console_startup = 0
 "set statusline+=%{SyntasticStatuslineFlag()}
 "set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_loc_list_height = 5
+let g:syntastic_auto_loc_list = 1
+"let g:syntastic_auto_jump = 3
+
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
-let g:syntastic_error_symbol = '✘'
-let g:syntastic_warning_symbol = "▲"
+"let g:syntastic_error_symbol = '✘'
+"let g:syntastic_warning_symbol = "▲"
 "augroup mySyntastic
 "  au!
 "  au FileType tex let b:syntastic_mode = "passive"
@@ -220,4 +235,8 @@ augroup mydelimitMate
   au FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
 augroup END
 
+" NeoComplete
+let g:neocomplete#enable_at_startup = 1
 
+" VOoM 
+nmap <silent> <leader>l :Voom latex<CR>

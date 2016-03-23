@@ -13,19 +13,21 @@ set guioptions=bCs
 "set showtabline=never
 
 "change Tab grop short keys
-nmap <M-;>  <M-S-e> 
+map <M-;>  <M-S-e> 
 
 "back or foward in history
-map -builtin , H 
-map -builtin . L 
+map -builtin , <C-o> 
+map -builtin . <C-i> 
 
 "right or left move
-map -builtin H h
-map -builtin L l
+nmap -builtin  H h
+nmap -builtin  L l
+nmap -builtin  j 5j
+nmap -builtin  k 5k
 
-"back or foward in tabs
-map h gT
-map l gt
+"back or foward among tabs
+nmap -builtin  h <C-p>
+nmap -builtin  l <C-n>
 
 " [[ 与 ]] 跳转到下一页的链接识别
 "" default: '^Next [>»]','^Next »','\bnext\b',^>$,'^(>>|»)$','^(>|»)','(>|»)$','\bmore\b'

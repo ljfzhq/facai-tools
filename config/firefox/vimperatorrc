@@ -1,10 +1,10 @@
 "fullscreen mode when start
-set fullscreen
+"set fullscreen
 
 "minimum UI
 set gui=none,tabs
 
-" Look and feel {{{
+" Look and feel 
 colorscheme solarized_dark
 set visualbell
 
@@ -20,7 +20,7 @@ set incsearch
 " highlight the terms
 set hlsearch
 
-" Open and search suggestions {{{
+" Open and search suggestions 
 "Items which are completed at the :open prompts. Available
 "		s		Search engines and keyword URLs
 "		f		Local files
@@ -28,7 +28,7 @@ set hlsearch
 "		b		BookmarkshHistory
 "		S		Search engine suggestions
 "		t		Open tabs
-set complete=sSl
+set complete=slS
 set defsearch=google
 set suggestengines=google
 
@@ -43,7 +43,7 @@ set nextpattern='\bnext\b',^>$,'^(>>|»)$','^(>|»)','(>|»)$','\bmore\b','s*下
 set previouspattern='\bprev|previous\b',^<$,'^(<<|«)$','^(<|«)','(<|«)$','s*上一页|上一张|上一章|上一篇|上一頁|上页|前页s*'
 
 
-" mappings {{{1
+" mappings 
 " clear all key mappings
 " to avoid troubles from loading rc file several times
 mapclear
