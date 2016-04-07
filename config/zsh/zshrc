@@ -1,0 +1,32 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+
+# add Anaconda 
+export PATH="$HOME/Library/anaconda3/bin:$PATH"
+
+# Customize to your needs...
+# Source private info.
+if [[ -s "$HOME/.private.zshrc" ]]; then
+  source "$HOME/.private.zshrc"
+fi
+
+alias ctags="`brew --prefix`/bin/ctags"
+
+alias ipynote="open -a Safari http://localhost:8888; ipython notebook --no-browser"
+
+alias mydnscrypt="sudo dnscrypt-proxy -R cisco --daemonize"
+
+alias blogmod='date +"%Y-%m-%d %H:%M:%S" | xargs -I {} gsed -i "s/modify:.*/modify: {}/"'
+
+alias mymkdir='pbpaste | sed "s/ /_/g" | xargs mkdir'

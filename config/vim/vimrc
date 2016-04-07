@@ -19,7 +19,8 @@ Plugin 'VundleVim/Vundle.vim'
 " ----- Making Vim look good ------------------------------------------
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tomasr/molokai'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " ----- Vim as a programmer's text editor -----------------------------
 Plugin 'scrooloose/nerdtree'
@@ -144,16 +145,9 @@ nnoremap k gk
 
 " ----- altercation/vim-colors-solarized settings -----
 set t_Co=256    " 256 color support
-"use solarized color scheme
+" use solarized color scheme
 set background=dark
 colorscheme solarized
-
-" Uncomment the next line if your terminal is not configured for solarized
-"let g:solarized_termcolors=256
-
-" Set the colorscheme
-colorscheme solarized
-
 
 " ----- bling/vim-airline settings -----
 " Always show statusbar
