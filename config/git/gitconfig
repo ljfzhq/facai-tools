@@ -2,3 +2,9 @@
 [user]
 	name = 颜发才（Yan Facai）
 	email = yafc18@gmail.com
+[push]
+	default = simple
+[core]
+	excludesfile = ~/.gitignore
+	quotepath = false
+	pager = less -+S
