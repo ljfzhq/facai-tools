@@ -34,3 +34,25 @@ alias mydnscrypt="sudo dnscrypt-proxy -R cisco --daemonize"
 alias blogmod='date +"%Y-%m-%d %H:%M:%S" | xargs -I {} gsed -i "s/modify:.*/modify: {}/"'
 
 alias mymkdir='pbpaste | sed "s/ /_/g" | xargs mkdir'
+alias mvdespng='mv ~/Desktop/*.png'
+
+## hadoop
+alias hdfs="hadoop fs"
+
+alias awklastcolumn='awk '\''{print $NF}'\'''
+
+alias hdlsmore='hdfs -ls'
+
+function hdls() {
+    hdlsmore $1 | awklastcolumn;
+}
+
+alias hdtxtmore='hdfs -text'
+
+function hdtxt() {
+    if [ -z "$2" ]; then
+        hdtxtmore $1 | head -n 5;
+    else
+        hdtxtmore $1 | head -n $2;
+    fi
+}

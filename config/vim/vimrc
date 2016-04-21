@@ -124,6 +124,7 @@ set nobackup
 set noswapfile
 
 
+"Custom key binding
 " change the mapleader from \ to ,
 let mapleader=","
 
