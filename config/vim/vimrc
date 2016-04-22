@@ -141,6 +141,9 @@ nmap <silent> <leader>h :nohlsearch<CR>
 nnoremap j gj   
 nnoremap k gk
 
+" copy to system clipboard
+vmap <C-c> "+yi
+
 
 " ----- Plugin-Specific Settings --------------------------------------
 
