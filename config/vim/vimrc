@@ -14,32 +14,56 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+"" 插件管理
 Plugin 'VundleVim/Vundle.vim'
 
 " ----- Making Vim look good ------------------------------------------
+"" 色彩方案
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'tomasr/molokai'
+
+"" 状态栏
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
 " ----- Vim as a programmer's text editor -----------------------------
+"" 路径目录
 Plugin 'scrooloose/nerdtree'
+""" making NERDTree feel like a true panel, independent of tabs.
 Plugin 'jistr/vim-nerdtree-tabs'
+
+"" 语法检查
 Plugin 'scrooloose/syntastic'
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-easytags'
+
+"" 异步编译
+Plugin 'tpope/vim-dispatch'
+
+"" 标签
+""" 自动生成标签
+Plugin 'szw/vim-tags'
+""" 标签侧栏
 Plugin 'majutsushi/tagbar'
-Plugin 'kien/ctrlp.vim'
-"Plugin 'vim-scripts/a.vim'
+
+"" 模糊文件检索
+Plugin 'ctrlpvim/ctrlp.vim'
+
+"" 自动补全
 Plugin 'Shougo/neocomplete.vim'
+
+"Plugin 'vim-scripts/a.vim'
 "Plugin 'davidhalter/jedi-vim'
 
 " ----- Working with Git ----------------------------------------------
+"" 显示变动行
 Plugin 'airblade/vim-gitgutter'
-"Plugin 'tpope/vim-fugitive'
+"" 绑定git命令
+Plugin 'tpope/vim-fugitive'
 
 " ----- Other text editing features -----------------------------------
+"" 配对符号补全
 Plugin 'Raimondi/delimitMate'
+
+"" 自动加载外部变动
+Plugin 'djoshea/vim-autoread'
 
 " ----- man pages, tmux -----------------------------------------------
 "Plugin 'jez/vim-superman'
@@ -68,7 +92,7 @@ Plugin 'Raimondi/delimitMate'
 "Plugin 'cakebaker/scss-syntax.vim'
 
 " Latex
-Plugin 'VOoM'
+"Plugin 'VOoM'
 
 call vundle#end()
 
@@ -101,7 +125,6 @@ set scrolloff=3
 set history=500
 set showcmd
 set ruler
-set autoread		" auto read when file changed from the outside
 set encoding=utf-8
 set fileencodings=utf-8,gb2312,gbk,gb18030,iso-2022-jp,euc-jp,cp932,ucs-bom
 set ffs=unix,dos
@@ -134,14 +157,14 @@ set pastetoggle=<leader>p
 " Clear highlight text
 nmap <silent> <leader>h :nohlsearch<CR>
 
-" Clear highlight text
+" Reload vimrc
 "nmap <silent> <leader>r :source ~/.vimrc<CR>
 
 " move by rows, not linenumber
 nnoremap j gj   
 nnoremap k gk
 
-" copy to system clipboard
+" Command + c, copy to system clipboard
 vmap <C-c> "+yi
 
 
@@ -174,14 +197,14 @@ let g:airline_detect_paste=1
 " ----- jistr/vim-nerdtree-tabs -----
 " Open/close NERDTree Tabs  
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
-" To have NERDTree always open on startup
+" NERDTree close on startup
 let g:nerdtree_tabs_open_on_console_startup = 0
 
 
 " ----- scrooloose/syntastic settings -----
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_loc_list_height = 5
@@ -191,23 +214,14 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
-"let g:syntastic_error_symbol = '✘'
-"let g:syntastic_warning_symbol = "▲"
-"augroup mySyntastic
-"  au!
-"  au FileType tex let b:syntastic_mode = "passive"
-"augroup END
+
+" ----- tpope/vim-dispatch settings -----
+" Compiler
 
 
-" ----- xolox/vim-easytags settings -----
-" Where to look for tags files
-set tags=./.tags;,~/.vimtags
-" Sensible defaults
-let g:easytags_events = ['BufReadPost', 'BufWritePost']
-let g:easytags_async = 1
-let g:easytags_dynamic_files = 2
-let g:easytags_resolve_links = 1
-let g:easytags_suppress_ctags_warning = 1
+" ----- szw/vim-tags settings -----
+let g:vim_tags_use_vim_dispatch = 1
+
 
 " ----- majutsushi/tagbar settings -----
 " Open/close tagbar with \b
@@ -216,11 +230,24 @@ nmap <silent> <leader>b :TagbarToggle<CR>
 "autocmd BufEnter * nested :call tagbar#autoopen(0)
 
 
+" ctrlp settings
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_root_markers = ['pom.xml', '.p4ignore']
+
+
+" neocomplete setting
+let g:neocomplete#enable_at_startup = 1
+
+
 " ----- airblade/vim-gitgutter settings -----
 " Required after having changed the colorscheme
-hi clear SignColumn
+"hi clear SignColumn
 " In vim-airline, only display "hunks" if the diff is non-zero
 let g:airline#extensions#hunks#non_zero_only = 1
+
+" vim-fugitive
 
 
 " ----- Raimondi/delimitMate settings -----
@@ -233,8 +260,6 @@ augroup mydelimitMate
   au FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
 augroup END
 
-" NeoComplete
-let g:neocomplete#enable_at_startup = 1
 
 " VOoM 
-nmap <silent> <leader>l :Voom latex<CR>
+"nmap <silent> <leader>l :Voom latex<CR>
