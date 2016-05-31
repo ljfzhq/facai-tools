@@ -56,3 +56,26 @@ function hdtxt() {
         hdtxtmore $1 | head -n $2;
     fi
 }
+
+# Customize
+alias mync132='nc 10.75.1.132 9999 <'
+alias mync132package="mync132 content-mr-assembly/target/content-mr-*-SNAPSHOT.tar.gz"
+
+alias mygitunmerge='git diff --diff-filter=U --name-only | xargs vim -p'
+
+
+#You may need to set JAVA_HOME:
+export JAVA_HOME="$(/usr/libexec/java_home)"
+
+#Hadoop must be in your path for hive executable to work.
+export HADOOP_HOME=/usr/local/Cellar/hadoop/hadoop-2.4.1
+
+#After installation, set $HIVE_HOME in your profile:
+export HIVE_HOME=/usr/local/Cellar/hive/hive-0.13.1
+#If you want to use HCatalog with Pig, set $HCAT_HOME in your profile:
+# export HCAT_HOME=/usr/local/Cellar/hive/1.2.1/libexec/hcatalog
+
+
+# Eclipse
+export ECLIPSE_HOME=/opt/homebrew-cask/Caskroom/eclipse-java/4.5.2/Eclipse.app/Contents/Eclipse
+alias myeclimd="$ECLIPSE_HOME/eclimd > ~/.eclim/log 2>&1 &"
