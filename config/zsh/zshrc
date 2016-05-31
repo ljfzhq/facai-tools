@@ -37,6 +37,16 @@ alias mymkdir='pbpaste | sed "s/ /_/g" | xargs mkdir'
 alias mvdespng='mv ~/Desktop/*.png'
 
 ## hadoop
+### file
+export WEIBO_PUSH="/dw/obja/weibo_individuation_push"
+export WEIBO_M="$WEIBO_PUSH/article"
+export WEIBO_U="$WEIBO_PUSH/pushmingxingc1c2uidlistjson"
+export WEIBO_F="$WEIBO_PUSH/full_user_behavior"
+export WEIBO_I="$WEIBO_PUSH/incr_user_behavior"
+export WEIBO_PM_WE="$WEIBO_PUSH/article_pushmaterials_we_media"
+export WEIBO_PM_LI="$WEIBO_PUSH/article_pushmaterials_linear_regression_model"
+
+### function
 alias hdfs="hadoop fs"
 
 alias awklastcolumn='awk '\''{print $NF}'\'''
