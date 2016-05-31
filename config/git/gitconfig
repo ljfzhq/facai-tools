@@ -8,3 +8,5 @@
 	excludesfile = ~/.gitignore
 	quotepath = false
 	pager = less -+S
+[filter "trimWhitespace"]
+	clean = git-stripspace
