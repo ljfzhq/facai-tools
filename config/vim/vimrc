@@ -49,9 +49,6 @@ Plugin 'ctrlpvim/ctrlp.vim'
 "" 自动补全
 Plugin 'Shougo/neocomplete.vim'
 
-"Plugin 'vim-scripts/a.vim'
-"Plugin 'davidhalter/jedi-vim'
-
 " ----- Working with Git ----------------------------------------------
 "" 显示变动行
 Plugin 'airblade/vim-gitgutter'
@@ -68,35 +65,11 @@ Plugin 'djoshea/vim-autoread'
 " Highlight and strip trailing whitespace
 Plugin 'ntpeters/vim-better-whitespace'
 
-" ----- man pages, tmux -----------------------------------------------
-"Plugin 'jez/vim-superman'
-"Plugin 'christoomey/vim-tmux-navigator'
-
-" ----- Syntax plugins ------------------------------------------------
-"Plugin 'jez/vim-c0'
-"Plugin 'jez/vim-ispc'
-"Plugin 'kchmck/vim-coffee-script'
-
-" ---- Extras/Advanced plugins ----------------------------------------
-
-" Easily surround chunks of text
-"Plugin 'tpope/vim-surround'
-" Align CSV files at commas, align Markdown tables, and more
-"Plugin 'godlygeek/tabular'
-" Automaticall insert the closing HTML tag
-"Plugin 'HTML-AutoCloseTag'
-" Make tmux look like vim-airline (read README for extra instructions)
-"Plugin 'edkolev/tmuxline.vim'
-" All the other syntax plugins I use
-"Plugin 'ekalinin/Dockerfile.vim'
-"Plugin 'digitaltoad/vim-jade'
-"Plugin 'tpope/vim-liquid'
-"Plugin 'cakebaker/scss-syntax.vim'
-
 " Latex
 "Plugin 'VOoM'
 
 call vundle#end()
+
 
 filetype plugin indent on
 syntax on
