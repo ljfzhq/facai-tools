@@ -88,4 +88,5 @@ export HIVE_HOME=/usr/local/Cellar/hive/hive-0.13.1
 
 # Eclipse
 export ECLIPSE_HOME=/opt/homebrew-cask/Caskroom/eclipse-java/4.5.2/Eclipse.app/Contents/Eclipse
-alias myeclimd="$ECLIPSE_HOME/eclimd > ~/.eclim/log 2>&1 &"
+alias myeclim="$ECLIPSE_HOME/eclimd"
+alias myecliser="nohup $ECLIPSE_HOME/eclimd >> ~/.eclim/log 2>&1 &"

@@ -237,18 +237,28 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_root_markers = ['pom.xml', '.p4ignore']
 
 
+" eclim
+let g:EclimCompletionMethod = 'omnifunc'
+
 " neocomplete setting
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
 " Enable at startup
 let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
 " Minimum syntax keyword length
 let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
+"" use eclim as backend
+if !exists('g:neocomplete#sources#omni#input_patterns')
+    let g:neocomplete#sources#omni#input_patterns = {}
+endif
+let g:neocomplete#sources#omni#input_patterns.java = '\k\.\k*'
 
 " 自动关闭预览
-" If you prefer the Omni-Completion tip window to close when a selection is
-" made, these lines close it on movement in insert mode or when leaving
-" insert mode
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+let g:neocomplete#enable_auto_close_preview = 1
 
 
 " ----- airblade/vim-gitgutter settings -----
@@ -275,11 +285,3 @@ augroup END
 "nmap <silent> <leader>l :Voom latex<CR>
 
 
-" eclim
-let g:EclimCompletionMethod = 'omnifunc'
-
-if !exists('g:neocomplete#force_omni_input_patterns')
-  let g:neocomplete#force_omni_input_patterns = {}
-endif
-let g:neocomplete#force_omni_input_patterns.java = '\k\.\k*'
-"let g:neocomplete#force_omni_input_patterns.scala = '\k\.\k*'
