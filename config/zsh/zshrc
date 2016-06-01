@@ -21,10 +21,11 @@ export EDITOR="$VISUAL"
 
 # Customize to your needs...
 # Source private info.
-if [[ -s "$HOME/.private.zshrc" ]]; then
-  source "$HOME/.private.zshrc"
+if [[ -s "$HOME/.private.zshrc.sh" ]]; then
+  source "$HOME/.private.zshrc.sh"
 fi
 
+## alias
 alias ctags="`brew --prefix`/bin/ctags"
 
 alias ipynote="open -a Safari http://localhost:8888; jupyter notebook --no-browser"
@@ -36,17 +37,19 @@ alias blogmod='date +"%Y-%m-%d %H:%M:%S" | xargs -I {} gsed -i "s/modify:.*/modi
 alias mymkdir='pbpaste | sed "s/ /_/g" | xargs mkdir'
 alias mvdespng='mv ~/Desktop/*.png'
 
-## hadoop
-### file
-export WEIBO_PUSH="/dw/obja/weibo_individuation_push"
-export WEIBO_M="$WEIBO_PUSH/article"
-export WEIBO_U="$WEIBO_PUSH/pushmingxingc1c2uidlistjson"
-export WEIBO_F="$WEIBO_PUSH/full_user_behavior"
-export WEIBO_I="$WEIBO_PUSH/incr_user_behavior"
-export WEIBO_PM_WE="$WEIBO_PUSH/article_pushmaterials_we_media"
-export WEIBO_PM_LI="$WEIBO_PUSH/article_pushmaterials_linear_regression_model"
 
-### function
+# Hadoop
+export JAVA_HOME="$(/usr/libexec/java_home)"
+
+#Hadoop must be in your path for hive executable to work.
+export HADOOP_HOME=/usr/local/Cellar/hadoop/hadoop-2.4.1
+
+#After installation, set $HIVE_HOME in your profile:
+export HIVE_HOME=/usr/local/Cellar/hive/hive-0.13.1
+#If you want to use HCatalog with Pig, set $HCAT_HOME in your profile:
+# export HCAT_HOME=/usr/local/Cellar/hive/1.2.1/libexec/hcatalog
+
+## function
 alias hdfs="hadoop fs"
 
 alias awklastcolumn='awk '\''{print $NF}'\'''
@@ -67,23 +70,9 @@ function hdtxt() {
     fi
 }
 
-# Customize
-alias mync132='nc 10.75.1.132 9999 <'
-alias mync132package="mync132 content-mr-assembly/target/content-mr-*-SNAPSHOT.tar.gz"
 
+# git
 alias mygitunmerge='git diff --diff-filter=U --name-only | xargs vim -p'
-
-
-#You may need to set JAVA_HOME:
-export JAVA_HOME="$(/usr/libexec/java_home)"
-
-#Hadoop must be in your path for hive executable to work.
-export HADOOP_HOME=/usr/local/Cellar/hadoop/hadoop-2.4.1
-
-#After installation, set $HIVE_HOME in your profile:
-export HIVE_HOME=/usr/local/Cellar/hive/hive-0.13.1
-#If you want to use HCatalog with Pig, set $HCAT_HOME in your profile:
-# export HCAT_HOME=/usr/local/Cellar/hive/1.2.1/libexec/hcatalog
 
 
 # Eclipse
