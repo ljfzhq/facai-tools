@@ -65,6 +65,9 @@ Plugin 'Raimondi/delimitMate'
 "" 自动加载外部变动
 Plugin 'djoshea/vim-autoread'
 
+" Highlight and strip trailing whitespace
+Plugin 'ntpeters/vim-better-whitespace'
+
 " ----- man pages, tmux -----------------------------------------------
 "Plugin 'jez/vim-superman'
 "Plugin 'christoomey/vim-tmux-navigator'
@@ -75,8 +78,7 @@ Plugin 'djoshea/vim-autoread'
 "Plugin 'kchmck/vim-coffee-script'
 
 " ---- Extras/Advanced plugins ----------------------------------------
-" Highlight and strip trailing whitespace
-"Plugin 'ntpeters/vim-better-whitespace'
+
 " Easily surround chunks of text
 "Plugin 'tpope/vim-surround'
 " Align CSV files at commas, align Markdown tables, and more
@@ -133,7 +135,7 @@ set hlsearch
 set incsearch
 set showmatch		" match when indicator is over them
 
-set autoindent 
+set autoindent
 
 set number
 
@@ -152,7 +154,7 @@ set noswapfile
 let mapleader=","
 
 " Toggle paste mode on and off
-set pastetoggle=<leader>p 
+set pastetoggle=<leader>p
 
 " Clear highlight text
 nmap <silent> <leader>h :nohlsearch<CR>
@@ -161,7 +163,7 @@ nmap <silent> <leader>h :nohlsearch<CR>
 "nmap <silent> <leader>r :source ~/.vimrc<CR>
 
 " move by rows, not linenumber
-nnoremap j gj   
+nnoremap j gj
 nnoremap k gk
 
 " Command + c, copy to system clipboard
@@ -195,7 +197,7 @@ let g:airline_detect_paste=1
 
 
 " ----- jistr/vim-nerdtree-tabs -----
-" Open/close NERDTree Tabs  
+" Open/close NERDTree Tabs
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
 " NERDTree close on startup
 let g:nerdtree_tabs_open_on_console_startup = 0
@@ -281,7 +283,10 @@ augroup mydelimitMate
 augroup END
 
 
-" VOoM 
+" VOoM
 "nmap <silent> <leader>l :Voom latex<CR>
 
 
+" vim-better-whitespace
+" strip all trailing whitespace everytime you save the file for all file types.
+"autocmd BufWritePre * StripWhitespace
