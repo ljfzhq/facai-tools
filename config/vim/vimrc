@@ -59,9 +59,6 @@ Plugin 'tpope/vim-fugitive'
 "" 配对符号补全
 Plugin 'Raimondi/delimitMate'
 
-"" 自动加载外部变动
-Plugin 'djoshea/vim-autoread'
-
 " Highlight and strip trailing whitespace
 Plugin 'ntpeters/vim-better-whitespace'
 
@@ -109,6 +106,8 @@ set incsearch
 set showmatch		" match when indicator is over them
 
 set autoindent
+
+set autoread
 
 set number
 
