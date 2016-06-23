@@ -72,7 +72,7 @@ function hdtxt() {
 
 
 # git
-alias mygitunmerge='git diff --diff-filter=U --name-only | xargs vim -p'
+alias mygitunmerge='git diff --diff-filter=U --name-only | xargs -o vim -p'
 
 
 # Eclipse
