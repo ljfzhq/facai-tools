@@ -226,10 +226,11 @@ let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
 "" use eclim as backend
-if !exists('g:neocomplete#sources#omni#input_patterns')
-    let g:neocomplete#sources#omni#input_patterns = {}
+if !exists('g:neocomplete#force_omni_input_patterns')
+    let g:neocomplete#force_omni_input_patterns = {}
 endif
-let g:neocomplete#sources#omni#input_patterns.java = '\k\.\k*'
+let g:neocomplete#force_omni_input_patterns.java = '\k\.\k*'
+let g:neocomplete#force_omni_input_patterns.python = '\k\.\k*'
 
 " 自动关闭预览
 let g:neocomplete#enable_auto_close_preview = 1
