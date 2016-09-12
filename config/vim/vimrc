@@ -49,6 +49,9 @@ Plugin 'ctrlpvim/ctrlp.vim'
 "" 自动补全
 Plugin 'Shougo/neocomplete.vim'
 
+"" scala
+Plugin 'derekwyatt/vim-scala'
+
 " ----- Working with Git ----------------------------------------------
 "" 显示变动行
 Plugin 'airblade/vim-gitgutter'
