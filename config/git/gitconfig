@@ -8,5 +8,6 @@
 	excludesfile = ~/.gitignore
 	quotepath = false
 	pager = less -+S
-[filter "trimWhitespace"]
-	clean = git-stripspace
+	editor = vim
+[http]
+	postBuffer = 50000000
