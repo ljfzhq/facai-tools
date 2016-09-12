@@ -43,11 +43,17 @@ export JAVA_HOME="$(/usr/libexec/java_home)"
 
 #Hadoop must be in your path for hive executable to work.
 export HADOOP_HOME=/usr/local/Cellar/hadoop/hadoop-2.4.1
+export HADOOP_CONF_DIR=$HADOOP_HOME/conf
 
 #After installation, set $HIVE_HOME in your profile:
 export HIVE_HOME=/usr/local/Cellar/hive/hive-0.13.1
 #If you want to use HCatalog with Pig, set $HCAT_HOME in your profile:
 # export HCAT_HOME=/usr/local/Cellar/hive/1.2.1/libexec/hcatalog
+
+# spark
+export SPARK_HOME=/usr/local/Cellar/spark/spark-1.3.1-bin-hadoop2.4.1
+export PATH=$PATH:${SPARK_HOME}/bin
+
 
 ## function
 alias hdfs="hadoop fs"
@@ -76,5 +82,6 @@ alias mygitunmerge='git diff --diff-filter=U --name-only | xargs -o vim -p'
 
 
 # Eclipse
+export ECLIPSE_HOME=/Applications/Eclipse.app/Contents/Eclipse
 alias myeclim="$ECLIPSE_HOME/eclimd"
 alias myecliser="nohup $ECLIPSE_HOME/eclimd >> ~/.eclim/log 2>&1 &"
