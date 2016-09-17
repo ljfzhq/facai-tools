@@ -29,12 +29,8 @@ set hlsearch
 "		S		Search engine suggestions
 "		t		Open tabs
 set complete=slS
-set defsearch=google
-set suggestengines=google
-
-
-" don't focus any "input" elements automatically when open pages.
-set focuscontent
+"set defsearch=gg
+"set suggestengines=gg
 
 
 " [[ 与 ]] 跳转到下一页的链接识别
