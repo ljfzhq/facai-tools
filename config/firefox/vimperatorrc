@@ -5,8 +5,8 @@
 set gui=none,tabs
 
 " Look and feel 
-colorscheme desert
-set visualbell
+"colorscheme desert
+"set visualbell
 
 " Show destination links in 1=status line, 2=command line
 set showstatuslinks=2
