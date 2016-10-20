@@ -10,6 +10,8 @@ set gui=none,tabs
 
 " Show destination links in 1=status line, 2=command line
 set showstatuslinks=2
+" Always show status bar
+set statuslinevisibility=visible
 
 " makes searches case-insensitive
 set ignorecase
