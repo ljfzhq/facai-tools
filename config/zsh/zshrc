@@ -37,6 +37,8 @@ alias blogmod='date +"%Y-%m-%d %H:%M:%S" | xargs -I {} gsed -i "s/modify:.*/modi
 alias mymkdir='pbpaste | sed "s/ /_/g" | xargs mkdir'
 alias mvdespng='mv ~/Desktop/*.png'
 
+alias myvector='pbpaste | tr "," "\n" | nl'
+
 
 # Hadoop
 export JAVA_HOME="$(/usr/libexec/java_home)"
