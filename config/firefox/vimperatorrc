@@ -9,7 +9,7 @@ set gui=none,tabs
 "set visualbell
 
 " Show destination links in 1=status line, 2=command line
-set showstatuslinks=2
+set showstatuslinks=1
 " Always show status bar
 set statuslinevisibility=visible
 
