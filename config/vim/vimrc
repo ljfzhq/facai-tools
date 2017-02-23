@@ -102,7 +102,7 @@ set showcmd
 set ruler
 set encoding=utf-8
 set fileencodings=utf-8,gb2312,gbk,gb18030,iso-2022-jp,euc-jp,cp932,ucs-bom
-set ffs=unix,dos
+set ffs=unix
 
 set hlsearch
 set incsearch
