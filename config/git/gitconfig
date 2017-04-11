@@ -1,6 +1,6 @@
 # This is Git's per-user configuration file.
 [user]
-	name = 颜发才（Yan Facai）
+	name = Yan Facai (颜发才)
 	email = facai.yan@gmail.com
 [push]
 	default = simple
