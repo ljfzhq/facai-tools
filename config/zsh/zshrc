@@ -12,8 +12,6 @@ fi
 
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
-# add Anaconda 
-export PATH="$HOME/Library/anaconda3/bin:$PATH"
 
 # use vim as default editor
 export VISUAL=vim
@@ -44,8 +42,8 @@ alias myvector='pbpaste | tr "," "\n" | nl'
 export JAVA_HOME="$(/usr/libexec/java_home)"
 
 #Hadoop must be in your path for hive executable to work.
-export HADOOP_HOME=/usr/local/Cellar/hadoop/hadoop-2.4.1
-export HADOOP_CONF_DIR=$HADOOP_HOME/conf
+export HADOOP_HOME=/usr/local/Cellar/hadoop/hadoop
+export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
 
 #After installation, set $HIVE_HOME in your profile:
 export HIVE_HOME=/usr/local/Cellar/hive/hive-0.13.1
@@ -54,7 +52,6 @@ export HIVE_HOME=/usr/local/Cellar/hive/hive-0.13.1
 
 # spark
 export SPARK_HOME=/usr/local/Cellar/spark/spark
-export PATH=$PATH:${SPARK_HOME}/bin
 
 
 ## function
@@ -87,3 +84,7 @@ alias mygitunmerge='git diff --diff-filter=U --name-only | xargs -o vim -p'
 export ECLIPSE_HOME=/Applications/Eclipse.app/Contents/Eclipse
 alias myeclim="$ECLIPSE_HOME/eclimd"
 alias myecliser="nohup $ECLIPSE_HOME/eclimd >> ~/.eclim/log 2>&1 &"
+
+
+# Customize PATH
+export PATH=${HADOOP_HOME}/bin:${SPARK_HOME}/bin:$HOME/Library/anaconda3/bin:$PATH
