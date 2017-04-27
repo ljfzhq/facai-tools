@@ -11,3 +11,5 @@
 	editor = vim
 [http]
 	postBuffer = 50000000
+[grep]
+	lineNumber = true
