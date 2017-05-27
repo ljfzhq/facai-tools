@@ -9,7 +9,10 @@
 	quotepath = false
 	pager = less -+S
 	editor = vim
+    whitespace = trailing-space,space-before-tab
 [http]
 	postBuffer = 50000000
 [grep]
 	lineNumber = true
+[apply]
+    whitespace = fix
