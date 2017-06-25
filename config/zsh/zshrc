@@ -30,8 +30,6 @@ alias ipynote="open -a Safari http://localhost:8888; jupyter notebook --no-brows
 
 alias mydnscrypt="sudo dnscrypt-proxy -R cisco --daemonize"
 
-alias blogmod='date +"%Y-%m-%d %H:%M:%S" | xargs -I {} gsed -i "s/modify:.*/modify: {}/"'
-
 alias mymkdir='pbpaste | sed "s/ /_/g" | xargs mkdir'
 alias mvdespng='mv ~/Desktop/*.png'
 
@@ -73,6 +71,14 @@ function hdtxt() {
     else
         hdtxtmore $1 | head -n $2;
     fi
+}
+
+function blogmod() {
+    TIME=`date +"%Y-%m-%d %H:%M:%S"`
+    DAY=`date +"%Y-%m-%d"`
+
+    gsed -i "s/^modify: .*/modify: $TIME/" $1
+    gsed -i "s/^update: .*/update: $DAY/" $1
 }
 
 
