@@ -75,7 +75,7 @@ filetype plugin indent on
 syntax on
 
 
-set textwidth=79    " Maximum width of text that is being inserted. A longer
+"set textwidth=79    " Maximum width of text that is being inserted. A longer
                     " line will be broken after white space to get this width.
 
 "set formatoptions=tcqmM	" line break can follow an Asian Char and DO NOT insert space before
