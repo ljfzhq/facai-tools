@@ -8,7 +8,7 @@ while getopts "gs:c::" opt; do
     s) SERVERS=$OPTARG;;
     c) COUNTS=$OPTARG;;
     g) GZ_MODE=true;;
-    \?) echo "usage: pingall -h [server file] -c [ping counts]";;
+    \?) echo "usage: pingall -s [server file] -c [ping counts]";;
   esac
 done
 
