@@ -13,6 +13,10 @@ fi
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
 
+# key binding, compatible with bash
+bindkey \^U backward-kill-line
+
+
 # use vim as default editor
 export VISUAL=vim
 export EDITOR="$VISUAL"
