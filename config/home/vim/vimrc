@@ -155,6 +155,10 @@ cnoremap <M-b> <S-Left>
 cnoremap <M-f> <S-Right>
 
 
+" mac crontab error: using an empty one
+autocmd filetype crontab set nobackup nowritebackup
+
+
 " ----- Plugin-Specific Settings --------------------------------------
 
 " ----- altercation/vim-colors-solarized settings -----
