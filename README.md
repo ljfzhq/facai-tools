@@ -12,3 +12,5 @@ pushd facai-tools/config/home
 bash install.sh
 popd
 ```
+
+详细使用见教程：[Mac新机配置记录](https://facaiy.github.io/misc/2018/02/16/mac_app_for_programmer.html)
