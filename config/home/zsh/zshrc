@@ -97,6 +97,16 @@ alias myeclim="$ECLIPSE_HOME/eclimd"
 alias myecliser="nohup $ECLIPSE_HOME/eclimd >> ~/.eclim/log 2>&1 &"
 
 
+# TensorFlow
+mytf_cc_check() {
+  git diff --name-only $1 -- "*.cc" | xargs -n 1 clang-format -i --style=google
+}
+
+mytf_py_check() {
+  git diff --name-only $1 -- "*.py" | xargs -n 1 pylint --rcfile=tensorflow/tools/ci_build/pylintrc
+}
+
+
 # Customize PATH
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
