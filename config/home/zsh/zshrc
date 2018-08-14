@@ -40,6 +40,9 @@ alias mvdespng='mv ~/Desktop/*.png'
 
 alias myvector='pbpaste | tr "," "\n" | nl'
 
+# alias myhttpserver='sudo python -m http.server 80'
+alias myhttpserver='sudo python -m http.server'
+
 
 # Hadoop
 export JAVA_HOME="$(/usr/libexec/java_home)"
