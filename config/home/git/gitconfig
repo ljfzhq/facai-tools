@@ -16,3 +16,5 @@
 	lineNumber = true
 [apply]
     whitespace = fix
+[alias]
+	graph = log --all --decorate --oneline --graph
