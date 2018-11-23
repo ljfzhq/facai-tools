@@ -1,0 +1,33 @@
+" May require the latest beta builds.
+
+" Move this to $XDG_CONFIG_DIR/tridactyl/tridactylrc (that's
+" ~/.config/tridactyl/tridactylrc to mere mortals) or ~/.tridactylrc and
+" install the native messenger (:installnative in Tridactyl). Run :source to
+" get it in the browser, or just restart.
+
+" NB: If you want "vim-like" behaviour where removing a line from
+" here makes the setting disappear, uncomment the line below.
+
+"sanitise tridactyllocal tridactylsync
+
+
+" Clean UI
+" guiset_quiet gui none
+guiset_quiet navbar autohide
+guiset_quiet tabs always
+guiset_quiet hoverlink right
+
+" Make Tridactyl work on more sites at the expense of some security
+set csp clobber
+fixamo_quiet
+
+" History
+bind , back
+bind . forward
+
+" Tabs
+bind l tabnext_gt
+bind h tabprev
+
+" Search
+set searchurls.youdao http://dict.youdao.com/search?q=%s&amp;keyfrom=dict.plugin
