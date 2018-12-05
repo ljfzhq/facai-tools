@@ -2,6 +2,7 @@
 [user]
 	name = Yan Facai (颜发才)
 	email = facai.yan@gmail.com
+	signingkey = 6F1973CF5C31A4A6
 [push]
 	default = simple
 [core]
@@ -18,3 +19,5 @@
     whitespace = fix
 [alias]
 	graph = log --all --decorate --oneline --graph
+[commit]
+	gpgsign = true

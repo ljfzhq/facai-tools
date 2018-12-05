@@ -30,4 +30,4 @@ bind l tabnext_gt
 bind h tabprev
 
 " Search
-set searchurls.youdao http://dict.youdao.com/search?q=%s&amp;keyfrom=dict.plugin
+set searchurls.yd http://dict.youdao.com/search?q=%s&amp;keyfrom=dict.plugin
