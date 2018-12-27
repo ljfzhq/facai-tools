@@ -114,3 +114,7 @@ mytf_py_check() {
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export PATH=${HADOOP_HOME}/bin:${SPARK_HOME}/bin:$HOME/Library/anaconda3/bin:$HOME/Tools/third_part/android-sdk-macosx/platform-tools:$PATH
+
+# AutoML
+alias kubectl_automl="kubectl -n automl"
+alias kubectl_automlpod='kubectl get pod -n automl --field-selector=status.phase!=Terminating -o jsonpath="{.items[0].metadata.name}"'
